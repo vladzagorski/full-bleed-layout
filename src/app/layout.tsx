@@ -1,8 +1,13 @@
 import type { Metadata } from "next";
 import { Inter } from "next/font/google";
 import { type ReactNode } from "react";
+import { Header } from "@/components/layout/header";
+import { Main } from "@/components/layout/main";
+import { Footer } from "@/components/layout/footer";
 
 import "./globals.css";
+import { Nav } from "@/components/layout/nav";
+import { cn } from "@/lib/utils";
 
 const inter = Inter({ subsets: ["latin"] });
 
@@ -18,8 +23,12 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en">
-      <body className={inter.className}>
-        <main>{children}</main>
+      <body className={cn("grid-container", inter.className)}>
+        <Header>
+          <Nav />
+        </Header>
+        <Main>{children}</Main>
+        <Footer />
       </body>
     </html>
   );
