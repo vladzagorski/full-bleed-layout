@@ -1,7 +1,7 @@
-import { Section } from "@/components/section";
-import { Banner } from "@/components/banner";
+import { Section } from "@/components/sections/section";
+import { Banner } from "@/components/sections/banner";
 import { Card, CardHeader, CardTitle, CardDescription, CardContent, CardFooter } from "@/components/ui/card";
-import { Hero } from "@/components/hero";
+import { Hero } from "@/components/sections/hero";
 
 const SampleCard = () => (
   <Card>
@@ -29,6 +29,9 @@ export default function Home() {
           <SampleCard />
         </div>
       </Section>
+
+      <Banner title="Banner Title 1" description="Banner Description 1" />
+
       <Section title="Section Title 2" description="Section Description 2">
         <div className="flex-1 grid grid-cols-1 lg:grid-cols-3 xl:grid-cols-6 gap-10">
           <SampleCard />
@@ -39,8 +42,11 @@ export default function Home() {
           <SampleCard />
         </div>
       </Section>
+
       <Section title="Section Title 3" description="Section Description 3" />
-      <Banner title="Banner Title 3" description="Banner Description 3" />
+
+      <Banner justify="start" title="Banner Title 2" description="Banner Description 2" />
+
       <Section title="Section Title 4" description="Section Description 4">
         <div className="grid grid-cols-1 lg:grid-cols-3 gap-10">
           <SampleCard />
@@ -48,6 +54,7 @@ export default function Home() {
           <SampleCard />
         </div>
       </Section>
+
       <Section title="Section Title 5" description="Section Description 5">
         <div className="flex-1 grid grid-cols-1 lg:grid-cols-2 gap-10">
           <SampleCard />

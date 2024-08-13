@@ -27,8 +27,10 @@ export default function RootLayout({
         <Header>
           <Nav />
         </Header>
-        <Main>{children}</Main>
-        <Footer />
+        <Main className="grid-container">{children}</Main>
+        <Footer>
+          <Nav />
+        </Footer>
       </body>
     </html>
   );
