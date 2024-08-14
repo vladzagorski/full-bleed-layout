@@ -1,7 +1,7 @@
 import { type ComponentPropsWithoutRef } from "react";
 import { Prose } from "../prose";
 import { cn } from "@/lib/utils";
-import { outlineStyle, spaceStyle } from "./section";
+import { outlineStyle, sectionSpaceStyle } from "../utils";
 
 type BannerProps = {
   justify?: "start" | "center" | "end";
@@ -13,7 +13,7 @@ export function Banner({ justify = "center", title, description, children }: Ban
   return (
     <section className={cn("full-breakout", outlineStyle(), "bg-accent")} aria-labelledby={title}>
       <div
-        className={cn(outlineStyle(), spaceStyle(), "flex flex-row", {
+        className={cn(outlineStyle(), sectionSpaceStyle(), "flex flex-row", {
           [`justify-${justify}`]: justify,
         })}
       >

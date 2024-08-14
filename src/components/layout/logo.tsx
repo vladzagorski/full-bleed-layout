@@ -1,3 +1,9 @@
+import Link from "next/link";
+
 export function Logo() {
-  return <span className="font-black">LOGO</span>;
+  return (
+    <Link href="/" className="font-black">
+      LOGO
+    </Link>
+  );
 }

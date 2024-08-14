@@ -1,7 +1,7 @@
 import { type ComponentPropsWithoutRef } from "react";
 import { Logo } from "./logo";
 import { cn } from "@/lib/utils";
-import { outlineStyle } from "../sections/section";
+import { outlineStyle } from "../utils";
 
 type HeaderProps = ComponentPropsWithoutRef<"header">;
 
