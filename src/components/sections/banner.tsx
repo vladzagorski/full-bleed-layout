@@ -4,16 +4,17 @@ import { cn } from "@/lib/utils";
 import { outlineStyle, sectionSpaceStyle } from "../utils";
 
 type BannerProps = {
+  mode?: "full-breakout" | "breakout";
   justify?: "start" | "center" | "end";
   title: string;
   description?: string;
 } & Omit<ComponentPropsWithoutRef<"div">, "title">;
 
-export function Banner({ justify = "center", title, description, children }: BannerProps) {
+export function Banner({ mode = "full-breakout", justify = "center", title, description, children }: BannerProps) {
   return (
-    <section className={cn("full-breakout", outlineStyle(), "bg-accent")} aria-labelledby={title}>
+    <section className={cn(mode, outlineStyle(), sectionSpaceStyle(), "bg-accent")} aria-labelledby={title}>
       <div
-        className={cn(outlineStyle(), sectionSpaceStyle(), "flex flex-row", {
+        className={cn("flex flex-row", {
           [`justify-${justify}`]: justify,
         })}
       >

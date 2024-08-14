@@ -61,6 +61,8 @@ export default function Home() {
           <SampleCard />
         </div>
       </Section>
+
+      <Banner mode="breakout" title="Banner Title 3" description="Banner Description 2" />
     </>
   );
 }

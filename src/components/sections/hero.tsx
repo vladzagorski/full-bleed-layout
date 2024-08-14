@@ -11,7 +11,7 @@ type HeroProps = {
 export function Hero({ title, description, children }: HeroProps) {
   return (
     <section className={cn("full-breakout", outlineStyle(), "mt-0 bg-accent")} aria-labelledby={title}>
-      <div className={cn(outlineStyle(), sectionSpaceStyle(), "flex flex-col")}>
+      <div className={cn(sectionSpaceStyle(), "flex flex-col")}>
         <Prose>
           <h1>{title}</h1>
           {description && <p>{description}</p>}

@@ -70,6 +70,7 @@
 
 .grid-container {
   --content-max-width: 100%;
+  --breakout-max-width: 100%;
   --padding: theme(padding.4);
 
   @screen md {
@@ -77,31 +78,42 @@
   }
 
   @screen lg {
-    --content-max-width: theme(screens.xl);
+    --content-max-width: theme(screens.lg);
+    --breakout-max-width: calc(var(--content-max-width) + theme(padding.12) * 2);
   }
 
   @screen xl {
-    --content-max-width: theme(screens.2xl);
+    --content-max-width: theme(screens.xl);
+    --breakout-max-width: calc(var(--content-max-width) + theme(padding.12) * 2);
   }
 
+  --breakout-size: calc((var(--breakout-max-width) - var(--content-max-width)) / 2);
+
   --full-breakout: minmax(var(--padding), 1fr);
+  --breakout: minmax(0, var(--breakout-size));
   --content: min(var(--content-max-width), 100% - (var(--padding) * 2));
 
   @apply grid;
   grid-template-columns:
     [full-breakout-start] var(--full-breakout)
+    [breakout-start] var(--breakout)
     [content-start] var(--content)
     [content-end]
+    var(--breakout) [breakout-end]
     var(--full-breakout) [full-breakout-end];
 }
 
-.grid-container > :not(.full-breakout, .full-breakout-image),
-.full-breakout > :not(.full-breakout, .full-breakout-image) {
+.grid-container > :not(.breakout, .full-breakout, .full-breakout-image),
+.full-breakout > :not(.breakout, .full-breakout, .full-breakout-image) {
   @apply col-[content];
 }
 
 .grid-container > .full-breakout {
   @apply col-[full-breakout] grid grid-cols-[inherit];
+}
+
+.grid-container > .breakout {
+  @apply col-[breakout];
 }
 
 .full-breakout-image {
